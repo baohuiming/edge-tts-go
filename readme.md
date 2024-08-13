@@ -63,3 +63,4 @@ It is possible to use the `edge-tts-go` module directly from go. For a list of e
 ## thanks
 
 * https://github.com/rany2/edge-tts
+* https://github.com/surfaceyu/edge-tts-go
