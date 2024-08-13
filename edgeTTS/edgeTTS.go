@@ -128,6 +128,7 @@ func (eTTS *EdgeTTS) Speak() {
 
 	go eTTS.communicator.allocateTask(eTTS.texts)
 	eTTS.communicator.createPool()
+	for _, text := range eTTS.texts {
 		_, err := eTTS.outCome.Write(text.speechData)
 		if err != nil {
 			log.Fatalln("Failed to write to file:", err)

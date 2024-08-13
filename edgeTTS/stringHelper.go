@@ -3,7 +3,7 @@ package edgeTTS
 import (
 	"bytes"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"math"
 	"strings"
 	"time"
@@ -22,7 +22,7 @@ func stringToBytes(text interface{}) []byte {
 	switch v := text.(type) {
 	case string:
 		encoder := unicode.UTF8.NewEncoder()
-		encodedText, err := ioutil.ReadAll(transform.NewReader(strings.NewReader(v), encoder))
+		encodedText, err := io.ReadAll(transform.NewReader(strings.NewReader(v), encoder))
 		if err != nil {
 			panic(fmt.Sprintf("Error encoding text: %s", err.Error()))
 		}

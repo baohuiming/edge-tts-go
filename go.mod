@@ -1,6 +1,6 @@
 module github.com/baohuiming/edge-tts-go
 
-go 1.20
+go 1.22
 
 require golang.org/x/crypto v0.11.0
 

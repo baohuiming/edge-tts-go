@@ -3,7 +3,7 @@ package edgeTTS
 import (
 	"encoding/json"
 	"errors"
-	"io/ioutil"
+	"io"
 	"net/http"
 )
 
@@ -48,7 +48,7 @@ func listVoices() ([]Voice, error) {
 	defer resp.Body.Close()
 
 	// Read the response body.
-	body, err := ioutil.ReadAll(resp.Body)
+	body, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +80,7 @@ func (vm *VoicesManager) create(customVoices []Voice) error {
 	for i, voice := range vm.voices {
 		locale := voice.Locale
 		if locale == "" {
-			return errors.New("Invalid voice locale")
+			return errors.New("invalid voice locale")
 		}
 		language := locale[:2]
 		vm.voices[i].Language = language
