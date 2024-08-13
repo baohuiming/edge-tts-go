@@ -9,7 +9,7 @@ import (
 	"reflect"
 	"sort"
 
-	"golang.org/x/crypto/ssh/terminal"
+	"golang.org/x/term"
 )
 
 type EdgeTTS struct {
@@ -30,7 +30,7 @@ type Args struct {
 }
 
 func isTerminal(file *os.File) bool {
-	return terminal.IsTerminal(int(file.Fd()))
+	return term.IsTerminal(int(file.Fd()))
 }
 
 func PrintVoices(locale string) {
